@@ -1,0 +1,9 @@
+.has-bg-img {
+  background: url('headbckgrnd.jpg') center center;
+  background-size: cover;
+}
+
+.has-bg-image {
+  background: url('mainbckgrnd.jpg') center center;
+  background-size: cover;
+}

@@ -1,0 +1,596 @@
+<html>
+ 
+ <head>
+<!---------- Importing the libraries ----------->
+   
+    <section>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+      <link rel="stylesheet" href="style.css" type="text/css"></link>
+    </section>
+    
+<!---------- title in the tab bar ----------->
+    
+    <title>S Prashanth A</title>
+    
+  </head>
+  
+  <body>
+   
+<!---------- title of page ----------->
+   
+    <section class="hero is-dark has-bg-img">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title has-text-centered">
+          S Prashanth A
+        </h1>
+        <br>
+        <h2 class="title is-5 has-text-centered">
+          Projects done as part of the course IT 680 under Dr. V - for Masters in I.T - MNSU
+        </h2>
+      </div>
+    </div>
+      </section>
+      
+<!---------- The two tabs ----------->
+
+    <div class="tabs is-centered is-fullwidth is-medium">
+      <ul>
+        <li id="retirement" class="is-active">
+          <a onClick="switchToRetire()">
+          <span class="icon is-small"><i class="fas fa-piggy-bank"></i></span>
+          <span>Retirement Calculator</span>
+          </a>
+        </li>
+        <li id="mort" >
+          <a onClick="switchToMort()">
+          <span class="icon is-small"><i class="fas fa-landmark"></i></span>
+          <span>Mortgage Calculator</span>
+          </a>
+        </li>
+        </ul>
+    </div>
+    
+<!---------- The web page ----------->
+
+    <div class="container">
+    
+<!---------- Retirement Calculator ----------->
+
+      <div id="retirement-content">
+        <section class="hero is-dark has-bg-image">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title has-text-centered">
+                Retirement Calculator
+              </h1>
+              <br>
+              <h2 class="title is-5 has-text-centered">
+                A web app to calculate retirement savings and a yearly schedule for your retirement plans.
+              </h2>
+            </div>
+          </div>
+        </section>
+        <br>
+        <div class="container is-widescreen">
+          <div class="columns is-centered">
+            <div class="column is-three-quarters">
+              <div class="card">
+                <div class="card-content">
+                  <form>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fas fa-user-tie"></i></p>
+                          User Name :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left">
+                              <input class="input" id="name" type="text" value="Prashanth" /> <span class="icon is-small is-left"> <i class="fas fa-user-tie"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fas fa-tasks"></i></p>
+                          Retirement Configuration :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left">
+                                <div class="select">
+                                    <select>
+                                        <option>Snowbird Plans</option>
+                                        <option>Longterm plans</option>
+                                        <option>Employee plans</option>
+                                        <option>Early retirement plans</option>
+                                    </select>
+                                </div> <span class="icon is-small is-left"> <i class="fas fa-tasks"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="far fa-calendar-alt"></i></p>
+                          Current age :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left">
+                              <input class="input" id="currage" type="number" value="26"/> <span class="icon is-small is-left"> <i class="far fa-calendar-alt"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="far fa-calendar-alt"></i></p>
+                          Retirement age :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left">
+                              <input class="input" id="retage" type="number" value="65"/> <span class="icon is-small is-left"> <i class="far fa-calendar-alt"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-dollar-sign"></i></p>
+                          Current Salary :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="currsal" type="number" value="60000" /><span class="icon is-small is-left"><i class="fa fa-dollar-sign"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-dollar-sign"></i></p>
+                          Retirement withdrawal income :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="retwith" type="number" value="84425"/><span class="icon is-small is-left"><i class="fa fa-dollar-sign"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-dollar-sign"></i></p>
+                          Years of retirement income :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="retwith" type="number" value="38"/><span class="icon is-small is-left"><i class="fa fa-dollar-sign"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-percentage"></i></p>
+                          Expected Income Increase (%) :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="growth" type="number" value="2" /><span class="icon is-small is-left"><i class="fa fa-percentage"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-percentage"></i></p>
+                          Contribution towards retirement (%) :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="growth" type="number" value="10" /><span class="icon is-small is-left"><i class="fa fa-percentage"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-percentage"></i></p>
+                          Investment Growth (%) :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="growth" type="number" value="5" /><span class="icon is-small is-left"><i class="fa fa-percentage"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-percentage"></i></p>
+                          Inflation (%) :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="inf" type="number" value="1.5"/><span class="icon is-small is-left"><i class="fa fa-percentage"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <h6 class="subtitle is-6">Please give values for everything & enter '0' if there's no value. </h6>
+                    <br>
+                    <input class="button is-medium is-fullwidth is-primary is-outlined" type="button" value="Calculate" onclick="takeInputs()" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <section>
+            <h4 class="title is-3">Retirement Schedule : </h4>
+            <div class="table-container">
+              <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Age</th>
+                    <th>Begining Retirement Balance</th>
+                    <th>Investment Growth</th>
+                    <th>Contribution from income</th>
+                    <th>Retirement Income</th>
+                    <th>Retirement Withdrawals</th>
+                    <th>Ending retirement balance</th>
+                  </tr>
+                </thead>
+                <br>
+                <tbody id="retire"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <br><br>
+        <h4 class="title is-3">Graphs for savings & withdrawals : </h4><br>
+        <div class="container has-text-centered">
+          <div class="box">
+            <canvas id="chart" height="300" width="600"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <!---------- Ret end ----------->
+    
+<!---------- Mortgage Calculator ----------->
+
+      <div class="is-hidden"  id="mort-content">
+       
+       
+        <section class="hero is-dark has-bg-image">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title has-text-centered">
+                Mortgage Calculator
+              </h1>
+              <br>
+              <h2 class="title is-5 has-text-centered">
+                A web app calculate monthly payments and amoritization table for your mortgage.
+              </h2>
+            </div>
+          </div>
+        </section>
+        <br>
+        <div class="container is-widescreen">
+          <div class="columns is-centered">
+            <div class="column is-three-quarters">
+              <div class="card">
+                <div class="card-content">
+                  <form>
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fas fa-user-tie"></i></p>
+                          User Name :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left">
+                              <input class="input" id="name" type="text" value="Prashanth"/> <span class="icon is-small is-left"> <i class="fas fa-user-tie"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- for loan amount display & input-->
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fas fa-hand-holding-usd"></i></p>
+                          Loan Amount :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left">
+                              <input class="input" id="principal" type="number" value="25000" /> <span class="icon is-small is-left"> <i class="fa fa-dollar-sign"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- for Interest Rate display & input-->
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fas fa-percent"></i></p>
+                          Interest Rate :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="interest" type="number" value="5"/><span class="icon is-small is-left"><i class="fa fa-percentage"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- for months display & input-->
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="far fa-calendar-alt"></i></p>
+                          Months :
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="terms" type="number" value="30" /><span class="icon is-small is-left"><i class="fa fa-calendar"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- for extra payment display & input-->
+                    <div class="level">
+                      <div class="level-left is-marginless">
+                        <div class="level-item">
+                          <p class="number"><i class="fa fa-dollar-sign"></i></p>
+                          Extra Monthly Payment
+                        </div>
+                      </div>
+                      <div class="level-right">
+                        <div class="level-item">
+                          <div class="field">
+                            <div class="control has-icons-left ">
+                              <input class="input" id="extra" type="number" value="0" /><span class="icon is-small is-left"><i class="fa fa-dollar-sign"></i></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- for Calculate Button-->
+                    <input class="button is-medium is-fullwidth is-primary is-outlined" type="button" value="Calculate" onclick="getValues()" />
+                  </form>
+                </div>
+              </div>
+              <br><br>
+              <section>
+                <h4 class="title is-3">Your Payments : </h4>
+                <br>
+                <nav class="level">
+                  <div class="level-item has-text-centered">
+                    <div class="heading">
+                      <p class="heading">
+                        Name
+                      </p>
+                      <div id="nm" class="title is-3"></div>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div class="heading">
+                      <p class="heading">
+                        Loan amount
+                      </p>
+                      <div id="am" class="title"></div>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">
+                        Interest Rate
+                      </p>
+                      <div id="in" class="title"></div>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">
+                        Months
+                      </p>
+                      <div id="mon" class="title"></div>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">
+                        Monthly payment
+                      </p>
+                      <div id="mp" class="title"></div>
+                    </div>
+                  </div>
+                </nav>
+                <nav class="level">
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">
+                        Extra
+                      </p>
+                      <div id="ex" class="title"></div>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">
+                        Total Monthly payment
+                      </p>
+                      <div id="tmp" class="title"></div>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">
+                        Total Payment
+                      </p>
+                      <div id="tot" class="title"></div>
+                    </div>
+                  </div>
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">
+                        Early Payoff by
+                      </p>
+                      <div id="early" class="title"></div>
+                    </div>
+                  </div>
+                </nav>
+              </section>
+              <br><br>
+              <section>
+                <h4 class="title is-3">Amortization Schedule : </h4>
+                <div class="table-container">
+                  <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th>Month</th>
+                        <th>Payment</th>
+                        <th>Interest</th>
+                        <th>Total Interest</th>
+                        <th>Principal</th>
+                        <th>Balance</th>
+                      </tr>
+                    </thead>
+                    <br>
+                    <tbody id="amor"></tbody>
+                  </table>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <!---------- Mort end ----------->
+
+    </div><br><br><br><br>
+
+<!---------- Main div end ----------->
+ 
+
+<!---------- The two tabs again ----------->
+
+<section class="hero is-dark has-bg-img">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title has-text-centered">
+          Thank you.
+          </h1>
+      </div>
+    </div>
+    </section>
+  
+<br><br>
+<!---------- The two tabs again ----------->
+<div class="tabs is-centered is-fullwidth is-medium">
+      <ul>
+        <li id="retirement" class="is-active">
+          <a onClick="switchToRetire()">
+          <span class="icon is-small"><i class="fas fa-piggy-bank"></i></span>
+          <span>Retirement Calculator</span>
+          </a>
+        </li>
+        <li id="mort" >
+          <a onClick="switchToMort()">
+          <span class="icon is-small"><i class="fas fa-landmark"></i></span>
+          <span>Mortgage Calculator</span>
+          </a>
+        </li>
+        </ul>
+    </div>
+ 
+ <br><br>
+  </body>
+  
+<!---------- Scripts for work & the tabs ----------->
+
+  <script src="work.js" charset="utf-8"></script>
+  <script src="tabs.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+<!---------- END ----------->
+
+</html>
